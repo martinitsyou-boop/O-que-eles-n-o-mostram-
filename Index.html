@@ -1,508 +1,283 @@
-<!-- index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>o que eles não mostram — casos brasileiros</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Casos reais, lendas e investigações do Brasil — análises, linhas do tempo e arquivos." />
+  <title>O Que Eles Não Mostram — Casos BR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Arquivo: casos brasileiros - textos e análises." />
+  <style>
+    /* ---- BASE / BACKGROUND PSICODÉLICO PROFISSIONAL ---- */
+    :root{
+      --bg1: #05040a;
+      --bg2: #11051a;
+      --muted: #c8d2e6;
+      --card: rgba(255,255,255,0.03);
+      --accent-a: linear-gradient(90deg,#ff0066,#8b00ff);
+      --accent-b: linear-gradient(90deg,#00e0ff,#8b00ff);
+      --glass: rgba(255,255,255,0.03);
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #eef6ff;
+      background:
+        radial-gradient(900px 300px at 20% 10%, rgba(139,0,255,0.06), transparent),
+        radial-gradient(700px 240px at 85% 80%, rgba(0,224,255,0.04), transparent),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* header + nav */
+    header{padding:44px 20px 18px; text-align:center; border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand h1{margin:0;font-size:40px; letter-spacing:1px; background:var(--accent-a); -webkit-background-clip:text;background-clip:text;color:transparent}
+    .tag{color:var(--muted); margin-top:6px}
+
+    nav{display:flex; justify-content:center; gap:18px; padding:16px 10px; flex-wrap:wrap}
+    nav a{color:#ff9fe0; text-decoration:none; font-weight:600; padding:6px 10px; border-radius:8px}
+    nav a:hover{filter:brightness(1.15); text-shadow:0 6px 18px rgba(139,0,255,0.12)}
+
+    main{max-width:var(--maxw); margin:28px auto; padding:0 20px}
+
+    /* hero */
+    .hero{display:grid; grid-template-columns:1fr 360px; gap:22px; align-items:center; margin-bottom:28px}
+    .hero-left h2{font-size:28px; margin:0 0 10px; background:linear-gradient(90deg,#fff,#cfe4ff); -webkit-background-clip:text;color:transparent}
+    .hero-left p{color:var(--muted); margin:0 0 16px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#ff0066,#8b00ff);color:white;text-decoration:none;margin-right:10px;box-shadow:0 8px 30px rgba(139,0,255,0.12)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04); color:var(--muted)}
+
+    .hero-visual{
+      height:240px;border-radius:12px;background:linear-gradient(135deg,#7b2ff7 0%,#00d2ff 100%);position:relative; overflow:hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      animation:floaty 6s ease-in-out infinite;
+    }
+    @keyframes floaty {0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+    /* sections, cards */
+    section{margin-bottom:28px}
+    h2.section-title{font-size:24px;margin-bottom:12px}
+    .case-box{background:var(--card); padding:20px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 10px 40px rgba(0,0,0,0.5)}
+    .muted{color:var(--muted); font-size:14px}
+    .lead{color:#dceeff}
+
+    /* timeline style */
+    .timeline{padding-left:18px;border-left:2px dashed rgba(255,255,255,0.04); margin:12px 0}
+    .timeline li{margin:12px 0}
+
+    /* boxed columns */
+    .grid-2{display:grid;grid-template-columns:1fr 360px; gap:20px}
+    @media (max-width:980px){ .hero{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} .hero-visual{height:180px} }
+
+    /* small typography */
+    p small{color:var(--muted)}
+
+    /* footer */
+    footer{padding:22px 10px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.03)}
+    .note{font-size:13px;color:var(--muted); margin-top:8px}
+
+    /* accessibility focus */
+    a:focus, button:focus{outline:3px solid rgba(139,0,255,0.18); outline-offset:4px}
+  </style>
 </head>
-<body class="page-home">
-  <header class="site-header">
+<body>
+
+  <header>
     <div class="brand">
-      <a href="index.html"><h1>o que eles <span class="accent">não</span> mostram</h1></a>
-      <p class="tag">Casos reais • arquivos • investigação</p>
+      <h1>O Que Eles Não Mostram</h1>
+      <div class="tag">Casos reais • arquivos • investigação</div>
     </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#destaques">Destaques</a>
-      <a href="case-evandro.html">Caso Evandro</a>
-      <a href="case-guaratuba.html">Meninas de Guaratuba</a>
-    </nav>
   </header>
 
+  <nav>
+    <a href="#evandro">Caso Evandro</a>
+    <a href="#guaratuba">Meninas de Guaratuba</a>
+    <a href="#metodologia">Metodologia</a>
+    <a href="#fontes">Fontes (placeholder)</a>
+  </nav>
+
   <main>
-    <section class="hero">
-      <div class="hero-inner">
-        <h2>Histórias que ficaram nas sombras</h2>
-        <p>Arquivos, timelines e análises com tom jornalístico — e um toque psicodélico para quem gosta de sentir a atmosfera.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="case-evandro.html">Ler: Caso Evandro</a>
-          <a class="btn ghost" href="case-guaratuba.html">Ler: Meninas de Guaratuba</a>
-        </div>
+    <section class="hero" aria-hidden="false">
+      <div class="hero-left">
+        <h2>Arquivos, timelines e análises — com respeito às vítimas.</h2>
+        <p class="lead">Abaixo está a versão detalhada do <strong>Caso Evandro</strong>, organizada para leitura e publicação no seu site de teste. Texto informativo — contém detalhes sensíveis.</p>
+        <a class="btn" href="#evandro">Ler Caso Evandro</a>
+        <a class="btn ghost" href="#guaratuba">Ir para Meninas de Guaratuba</a>
       </div>
       <div class="hero-visual" aria-hidden="true"></div>
     </section>
 
-    <section id="categorias" class="categories">
-      <h3>Categorias</h3>
-      <div class="cats-grid">
-        <div class="cat">Crimes reais</div>
-        <div class="cat">Desaparecimentos</div>
-        <div class="cat">Lendas & Urbanos</div>
-        <div class="cat">Sobrenatural</div>
-        <div class="cat">Análises</div>
-        <div class="cat">Não resolvidos</div>
+    <!-- ===== CASO EVANDRO (DETAILED) ===== -->
+    <section id="evandro">
+      <h2 class="section-title">CASO EVANDRO — Resumo detalhado</h2>
+
+      <div class="case-box">
+        <p class="muted"><strong>Atenção:</strong> o texto abaixo relata fatos criminais e procedimentos controversos. Contém menção a violência e tortura. Use com responsabilidade.</p>
+
+        <h3 style="margin-top:14px">1. O que aconteceu?</h3>
+        <p>
+          Em <strong>6 de abril de 1992</strong>, o menino <strong>Evandro Ramos Caetano</strong>, de 6 anos,
+          desapareceu em <strong>Guaratuba</strong>, pequena cidade do litoral do Paraná. Ele saiu para ir ao colégio buscar uma roupa e não retornou.
+          A procura foi imediata e a cidade viveu um clima de choque e comoção.
+        </p>
+
+        <h3>2. Encontraram um corpo</h3>
+        <p>
+          No dia <strong>11 de abril de 1992</strong> um corpo infantil foi localizado em uma área de mata próxima.
+          O corpo estava em avançado estado de decomposição, parcialmente queimado/ferido e com mutilações que levaram a investigações sobre a identidade e a causa da morte.
+          A polícia anunciou tratar-se de Evandro, embora a identificação e a cadeia de evidências tenham sido questionadas posteriormente.
+        </p>
+
+        <h3>3. Linha do tempo essencial</h3>
+        <ul class="timeline">
+          <li><strong>6/4/1992:</strong> Desaparecimento de Evandro.</li>
+          <li><strong>11/4/1992:</strong> Corpo encontrado; imprensa aumenta a pressão sobre as autoridades locais.</li>
+          <li><strong>Abril–maio/1992:</strong> Investigações preliminares, prisões de suspeitos e início das confissões.</li>
+          <li><strong>Anos seguintes:</strong> Processos judiciais, julgamentos e diversas reviravoltas até sentenças e recursos.</li>
+          <li><strong>Décadas seguintes:</strong> Revisões, impugnações das provas e ampla discussão pública sobre tortura e má condução policial.</li>
+        </ul>
+
+        <h3>4. Suspeitos e prisões</h3>
+        <p>
+          Ao longo da investigação foram detidas várias pessoas, incluindo moradores locais e indivíduos apontados por testemunhas.
+          Algumas confissões — que tiveram papel central nos processos — surgiram em contextos que, depois, foram chamados de irregulares.
+        </p>
+
+        <h3>5. A polêmica central: confissões e tortura</h3>
+        <p>
+          Uma das maiores controvérsias do caso é que várias confissões relacionadas ao crime foram obtidas sob condições de coerção.  
+          Denúncias de tortura e maus-tratos por policiais surgiram e comprometeram a credibilidade de depoimentos-chave.
+          Em muitos momentos os relatos de testemunhas foram contraditórios entre si, reformulados no decorrer do inquérito e influenciados por entrevistas e pressão externa.
+        </p>
+
+        <h3>6. Alegações de ritualismo</h3>
+        <p>
+          Parte da narrativa inicial veiculada na imprensa e por depoimentos envolveu a questão de rituais de caráter satânico. Tais alegações ganharam força pública,
+          mas investigações técnicas e periciais posteriores colocaram em dúvida a validade dessas associações — muitas vezes fruto de pânico moral e sensacionalismo.
+        </p>
+
+        <h3>7. Julgamentos e sentenças</h3>
+        <p>
+          O processo transitou por diversas instâncias. Houve condenações, recursos e revisões. Alguns réus foram condenados em primeira instância; outros obtiveram reavaliação das penas ou anulação de partes do processo.
+          As decisões judiciais e a execução das penas foram marcadas por polêmicas sobre a correção dos procedimentos investigativos e a validade das provas.
+        </p>
+
+        <h3>8. Erros investigativos apontados</h3>
+        <ul>
+          <li>Uso de confissões sem respaldo técnico ou obtidas sob coação.</li>
+          <li>Fragilidade na cadeia de custódia de provas e documentação incompleta.</li>
+          <li>Influência da imprensa e de autoridades locais que pressionaram por resultados rápidos.</li>
+          <li>Ausência de reconstrução forense rigorosa ou interpretações contestadas de laudos.</li>
+        </ul>
+
+        <h3>9. Repercussão midiática e cultural</h3>
+        <p>
+          O caso ganhou enorme cobertura da mídia e entrou no imaginário público. Anos depois, produções jornalísticas, reportagens investigativas e podcasts trouxeram à tona detalhes antes pouco discutidos,
+          incluindo denúncias de tortura, manipulação e de falhas judiciais que redimensionaram a percepção pública sobre o caso.
+        </p>
+
+        <h3>10. Legado e debates contemporâneos</h3>
+        <p>
+          O Caso Evandro virou sinônimo de falhas processuais e de como pressões externas podem comprometer investigações. A discussão não é apenas sobre o crime em si,
+          mas sobre métodos policiais, garantia de direitos, uso de prova ilícita e a responsabilidade do sistema judicial ao lidar com casos sensíveis.
+        </p>
+
+        <h3>11. O que permanece incerto</h3>
+        <p>
+          Mesmo com julgamentos e anos de apuração, muitos pontos ainda são questionados:
+        </p>
+        <ul>
+          <li>Precisão das identificações iniciais do corpo;</li>
+          <li>Quem realmente ordenou e praticou atos ligados ao desaparecimento;</li>
+          <li>Se confissões e laudos foram interpretados corretamente;</li>
+          <li>Possíveis cúmplices ou encobridores que não foram identificados.</li>
+        </ul>
+
+        <h3 style="margin-top:12px">12. Observações para publicação</h3>
+        <p>
+          — Ao publicar sobre o caso, sempre deixe claro o que é fato documentado e o que é hipótese/teoria.  
+          — Evite reproduzir detalhes sensacionalistas sem fonte.  
+          — Respeite a memória da vítima e a sensibilidade dos familiares.
+        </p>
+
+        <hr style="margin:18px 0; border:none; border-top:1px solid rgba(255,255,255,0.03)">
+
+        <h3>13. Linha do tempo ampliada (modelo para o site)</h3>
+        <ol class="timeline">
+          <li><strong>6/4/1992 — Desaparecimento:</strong> Evandro some ao sair para o colégio.</li>
+          <li><strong>11/4/1992 — Corpo encontrado:</strong> corpo em área próxima; identificação inicial e início de investigações.</li>
+          <li><strong>Abril–Maio/1992 — Prisões e confissões:</strong> detenção de suspeitos e surgimento de confissões que depois foram contestadas.</li>
+          <li><strong>Anos 1990—2000 — Processos:</strong> julgamentos, condenações e recursos.</li>
+          <li><strong>Décadas seguintes — Revisões:</strong> denúncias públicas, reportagens e pedidos de reanálise do caso.</li>
+        </ol>
+
+        <p class="note"><strong>Quer que eu já inclua as fontes e links (reportagens, decisões judiciais e laudos) nesta página?</strong>
+        Posso buscar e inserir referências confiáveis direto no HTML — me avisa que eu faço agora.</p>
+
       </div>
     </section>
 
-    <section id="destaques" class="destaques">
-      <h3>Destaques</h3>
-      <div class="cards">
-        <article class="card">
-          <h4><a href="case-evandro.html">Caso Evandro — Guaratuba, PR</a></h4>
-          <p>Desaparecimento e morte de uma criança nos anos 1990 que gerou controvérsias nas investigações e debates públicos.</p>
-          <a class="readmore" href="case-evandro.html">Ler caso →</a>
-        </article>
+    <!-- ===== MENINAS DE GUARATUBA (TEMPLATE) ===== -->
+    <section id="guaratuba">
+      <h2 class="section-title">Meninas de Guaratuba — Página de teste</h2>
 
-        <article class="card">
-          <h4><a href="case-guaratuba.html">Meninas de Guaratuba</a></h4>
-          <p>Página de teste para o projeto — estrutura para documentação de um caso, com linha do tempo, fontes e teorias.</p>
-          <a class="readmore" href="case-guaratuba.html">Ler caso →</a>
-        </article>
+      <div class="case-box">
+        <p class="muted">Este bloco é um template para testes — conforme conversamos, o termo “Meninas de Guaratuba” foi solicitado como placeholder. Aqui você pode preencher depois com informações verificadas, caso existam ou se quiser documentar casos paralelos.</p>
+
+        <h3>Resumo / Propósito</h3>
+        <p>Conteúdo de exemplo para testar o layout do site: espaço para resumo, timeline, provas e hipóteses.</p>
+
+        <h3>Guia rápido para preencher</h3>
+        <ul>
+          <li>Adicionar datas e locais precisos</li>
+          <li>Inserir fontes primárias (boletins, sentenças)</li>
+          <li>Diferenciar claramente fatos e teorias</li>
+          <li>Preservar o direito à imagem e privacidade</li>
+        </ul>
       </div>
     </section>
 
-    <section class="about">
-      <h3>Sobre o projeto</h3>
-      <p>Este site é um arquivo experimental: textos, timelines e análises são apresentados de forma clara, com referências quando disponíveis. Conteúdo sensível é tratado com respeito às vítimas e cautela jornalística.</p>
+    <!-- ===== METODOLOGIA / AVISOS ===== -->
+    <section id="metodologia">
+      <h2 class="section-title">Metodologia e Avisos</h2>
+      <div class="case-box">
+        <h3>Como trabalhamos os casos aqui</h3>
+        <p>O objetivo é organizar informações de forma clara: resumo, linha do tempo, evidências e teorias. Sempre separando fatos verificados (com fonte) de hipóteses ou relatos.</p>
+
+        <h3>Atenção legal e ética</h3>
+        <p class="muted">Nós não publicamos acusações sem provas. Ao inserir material sensível, evite difamar pessoas vivas. Se quiser que eu pesquise e adicione decisões judiciais e reportagens confiáveis, posso fazer — e devo incluir links e notas de rodapé.</p>
+      </div>
     </section>
+
+    <!-- ===== FONTES / PLACEHOLDER ===== -->
+    <section id="fontes">
+      <h2 class="section-title">Fontes (placeholder)</h2>
+      <div class="case-box">
+        <p class="muted">Se desejar, eu faço a busca e preencho essa seção com:</p>
+        <ul>
+          <li>Reportagens de jornais e investigações</li>
+          <li>Transcrições de julgamentos e sentenças</li>
+          <li>Laudos periciais e documentos oficiais</li>
+          <li>Produtos jornalísticos (podcasts/reportagens longform)</li>
+        </ul>
+
+        <p class="note">Quer que eu já pesquise e adicione as fontes agora? Responda "sim — fontes" e eu coloco tudo pronto pra você (links e pequenos trechos resumidos).</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div>
-      <small>© <span id="year"></span> o que eles não mostram — criado por Mika (Chae).</small>
-      <div class="socials">
-        <button id="shareBtn">Compartilhar site</button>
-      </div>
-    </div>
+  <footer>
+    <div>© <span id="yr"></span> — O Que Eles Não Mostram | Desenvolvido por Mika & Chae</div>
+    <div class="note">Este site é um projeto experimental. Se quiser referências detalhadas, eu insiro fontes verificadas quando você pedir.</div>
   </footer>
 
   <script>
-    // pequenos scripts: ano dinâmico e share
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('shareBtn').addEventListener('click', async () => {
-      const url = location.href;
-      try {
-        if (navigator.share) {
-          await navigator.share({ title: 'o que eles não mostram', text: 'Veja estes arquivos e casos brasileiros', url });
-        } else {
-          await navigator.clipboard.writeText(url);
-          alert('Link copiado para a área de transferência!');
-        }
-      } catch (e) { console.log(e); alert('Não foi possível compartilhar.'); }
-    });
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
+
 </body>
   </html>
-  <!-- case-evandro.html -->
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Caso Evandro — o que eles não mostram</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Arquivo: Caso Evandro — resumo e linha do tempo." />
-</head>
-<body class="page-case">
-  <header class="site-header small">
-    <div class="brand">
-      <a href="index.html"><h1>o que eles <span class="accent">não</span> mostram</h1></a>
-    </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="case-evandro.html">Caso Evandro</a>
-      <a href="case-guaratuba.html">Meninas de Guaratuba</a>
-    </nav>
-  </header>
-
-  <main class="case-container">
-    <article class="case-article">
-      <header class="case-header">
-        <h2>Caso Evandro</h2>
-        <p class="meta">Local: Guaratuba, PR • Período: início dos anos 1990 • Status: caso de alta repercussão e controvérsias</p>
-      </header>
-
-      <section class="case-summary">
-        <h3>Resumo breve</h3>
-        <p>O Caso Evandro refere-se ao desaparecimento e morte de uma criança em Guaratuba (Paraná), ocorrido no início dos anos 1990. O processo teve grande repercussão, envolveu acusações de ritualismo e levou a um conjunto de investigações e julgamentos que geraram controvérsia pública. A complexidade do caso fez com que ele permanecesse objeto de debates sobre procedimentos policiais e validade de testemunhos.</p>
-        <p><strong>Observação:</strong> este resumo é propositalmente conciso. Abaixo temos uma estrutura detalhada — linha do tempo, testemunhos, provas e fontes — que você pode editar e completar com referências diretas.</p>
-      </section>
-
-      <section class="case-timeline">
-        <h3>Linha do tempo (modelo)</h3>
-        <ol>
-          <li><strong>Desaparecimento:</strong> data aproximada (ano/mes) — descrição curta.</li>
-          <li><strong>Descoberta / investigação inicial:</strong> eventos principais, prisões, buscas.</li>
-          <li><strong>Processos judiciais:</strong> etapas do julgamento, réus, sentenças.</li>
-          <li><strong>Apelos e reviravoltas:</strong> revisões, questionamentos sobre provas/testemunhos.</li>
-          <li><strong>Estado atual:</strong> apontar se houve anulações, indícios não solucionados ou arquivamento.</li>
-        </ol>
-      </section>
-
-      <section class="case-evidence">
-        <h3>Provas e fontes</h3>
-        <p>Lista de documentos, reportagens e arquivos — insira fontes primárias (sentenças, laudos) e reportagens confiáveis.</p>
-        <ul>
-          <li>Documento / laudo — <em>incluir link</em></li>
-          <li>Reportagem X — <em>incluir link</em></li>
-          <li>Arquivo de tribunal — <em>incluir link</em></li>
-        </ul>
-      </section>
-
-      <section class="case-theories">
-        <h3>Teorias & análises</h3>
-        <p>Espaço para apresentar hipóteses, críticas ao processo investigativo, e análises com base em fontes.</p>
-      </section>
-
-      <section class="case-updates">
-        <h3>Atualizações</h3>
-        <p>Registre aqui novas informações ou decisões judiciais.</p>
-      </section>
-
-      <section class="case-footer">
-        <div class="share">
-          <button onclick="shareCase()">Compartilhar este caso</button>
-        </div>
-        <div class="notes">
-          <small>Trate conteúdo sensível com respeito às vítimas. Sempre cite fontes ao publicar.</small>
-        </div>
-      </section>
-    </article>
-
-    <aside class="case-sidebar">
-      <div class="widget">
-        <h4>Arquivos relacionados</h4>
-        <ul>
-          <li><a href="#">Reportagem exempl o</a></li>
-          <li><a href="#">Análise jurídica</a></li>
-        </ul>
-      </div>
-
-      <div class="widget">
-        <h4>Quer que eu busque fontes?</h4>
-        <p>Posso procurar e inserir referências (sentenças, reportagens) para deixar a página completa.</p>
-      </div>
-    </aside>
-  </main>
-
-  <footer class="site-footer small">
-    <small>© <span id="year2"></span> o que eles não mostram — Mika (Chae)</small>
-  </footer>
-
-  <script>
-    document.getElementById('year2').textContent = new Date().getFullYear();
-    function shareCase() {
-      const url = location.href;
-      if (navigator.share) navigator.share({ title: 'Caso Evandro', url });
-      else { navigator.clipboard.writeText(url).then(()=> alert('Link copiado!')); }
-    }
-  </script>
-</body>
-</html>
-<!-- case-guaratuba.html -->
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meninas de Guaratuba — o que eles não mostram</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Meninas de Guaratuba — página de teste / template para casos." />
-</head>
-<body class="page-case">
-  <header class="site-header small">
-    <div class="brand">
-      <a href="index.html"><h1>o que eles <span class="accent">não</span> mostram</h1></a>
-    </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="case-evandro.html">Caso Evandro</a>
-      <a href="case-guaratuba.html">Meninas de Guaratuba</a>
-    </nav>
-  </header>
-
-  <main class="case-container">
-    <article class="case-article">
-      <header class="case-header">
-        <h2>Meninas de Guaratuba</h2>
-        <p class="meta">Página de teste — estrutura pronta para pesquisa e preenchimento.</p>
-      </header>
-
-      <section class="case-summary">
-        <h3>Resumo / Introdução</h3>
-        <p>Você pediu este caso como teste — aqui está um template completo que deve ser preenchido com informações verificadas. Abaixo há sugestões do que pesquisar e como organizar o material.</p>
-      </section>
-
-      <section class="research-guidelines">
-        <h3>Guia de pesquisa (o que adicionar)</h3>
-        <ul>
-          <li>Data / local preciso do fato</li>
-          <li>Fontes primárias: boletins de ocorrência, sentenças, laudos</li>
-          <li>Reportagens e entrevistas</li>
-          <li>Testemunhos e versões oficiais</li>
-          <li>Fotos e documentos (com cuidado legal e de privacidade)</li>
-        </ul>
-      </section>
-
-      <section class="case-timeline">
-        <h3>Linha do tempo (preencher)</h3>
-        <ol>
-          <li>Evento 1 — descrição</li>
-          <li>Evento 2 — descrição</li>
-          <li>Evento 3 — descrição</li>
-        </ol>
-      </section>
-
-      <section class="case-evidence">
-        <h3>Provas / Fontes</h3>
-        <p>Insira links e documentos. Sempre verifique a credibilidade.</p>
-      </section>
-
-      <section class="case-theories">
-        <h3>Teorias / Observações</h3>
-        <p>Espaço para hipóteses, mas sempre deixando claro o que é fato e o que é conjectura.</p>
-      </section>
-
-      <section class="case-footer">
-        <p><em>Esta página é um modelo para você testar layout e publicar conteúdo depois de verificado.</em></p>
-      </section>
-    </article>
-
-    <aside class="case-sidebar">
-      <div class="widget">
-        <h4>Pesquisa rápida</h4>
-        <p>Precisa que eu busque fontes e monte a versão final conforme referências confiáveis?</p>
-      </div>
-    </aside>
-  </main>
-
-  <footer class="site-footer small">
-    <small>© <span id="year3"></span> o que eles não mostram — Mika (Chae)</small>
-  </footer>
-
-  <script>document.getElementById('year3').textContent = new Date().getFullYear();</script>
-</body>
-  </html>
-<!-- case-guaratuba.html -->
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meninas de Guaratuba — o que eles não mostram</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Meninas de Guaratuba — página de teste / template para casos." />
-</head>
-<body class="page-case">
-  <header class="site-header small">
-    <div class="brand">
-      <a href="index.html"><h1>o que eles <span class="accent">não</span> mostram</h1></a>
-    </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="case-evandro.html">Caso Evandro</a>
-      <a href="case-guaratuba.html">Meninas de Guaratuba</a>
-    </nav>
-  </header>
-
-  <main class="case-container">
-    <article class="case-article">
-      <header class="case-header">
-        <h2>Meninas de Guaratuba</h2>
-        <p class="meta">Página de teste — estrutura pronta para pesquisa e preenchimento.</p>
-      </header>
-
-      <section class="case-summary">
-        <h3>Resumo / Introdução</h3>
-        <p>Você pediu este caso como teste — aqui está um template completo que deve ser preenchido com informações verificadas. Abaixo há sugestões do que pesquisar e como organizar o material.</p>
-      </section>
-
-      <section class="research-guidelines">
-        <h3>Guia de pesquisa (o que adicionar)</h3>
-        <ul>
-          <li>Data / local preciso do fato</li>
-          <li>Fontes primárias: boletins de ocorrência, sentenças, laudos</li>
-          <li>Reportagens e entrevistas</li>
-          <li>Testemunhos e versões oficiais</li>
-          <li>Fotos e documentos (com cuidado legal e de privacidade)</li>
-        </ul>
-      </section>
-
-      <section class="case-timeline">
-        <h3>Linha do tempo (preencher)</h3>
-        <ol>
-          <li>Evento 1 — descrição</li>
-          <li>Evento 2 — descrição</li>
-          <li>Evento 3 — descrição</li>
-        </ol>
-      </section>
-
-      <section class="case-evidence">
-        <h3>Provas / Fontes</h3>
-        <p>Insira links e documentos. Sempre verifique a credibilidade.</p>
-      </section>
-
-      <section class="case-theories">
-        <h3>Teorias / Observações</h3>
-        <p>Espaço para hipóteses, mas sempre deixando claro o que é fato e o que é conjectura.</p>
-      </section>
-
-      <section class="case-footer">
-        <p><em>Esta página é um modelo para você testar layout e publicar conteúdo depois de verificado.</em></p>
-      </section>
-    </article>
-
-    <aside class="case-sidebar">
-      <div class="widget">
-        <h4>Pesquisa rápida</h4>
-        <p>Precisa que eu busque fontes e monte a versão final conforme referências confiáveis?</p>
-      </div>
-    </aside>
-  </main>
-
-  <footer class="site-footer small">
-    <small>© <span id="year3"></span> o que eles não mostram — Mika (Chae)</small>
-  </footer>
-
-  <script>document.getElementById('year3').textContent = new Date().getFullYear();</script>
-</body>
-  </html>
-<html>
-  <body>
-    <style>
-    /* styles.css */
-:root{
-  --bg:#0b0b0f;
-  --card:#0f1216;
-  --text:#e6eef8;
-  --muted:#a9b3c2;
-  --accent1: linear-gradient(90deg,#7b2ff7,#00d2ff);
-  --accent-color-1: #7b2ff7;
-  --accent-color-2: #00d2ff;
-  --psy-1: rgba(123,47,247,0.08);
-  --glass: rgba(255,255,255,0.03);
-  --maxw: 1100px;
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background: radial-gradient(1200px 400px at 10% 10%, rgba(123,47,247,0.07), transparent),
-              radial-gradient(900px 300px at 90% 80%, rgba(0,210,255,0.03), transparent),
-              var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-}
-
-/* header */
-.site-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  padding:20px;
-  max-width:var(--maxw);
-  margin:0 auto;
-}
-.site-header.small{padding:12px 20px}
-.brand h1{
-  margin:0;
-  font-size:20px;
-  letter-spacing:0.6px;
-}
-.brand .accent{background:var(--accent1);-webkit-background-clip:text;background-clip:text;color:transparent}
-.site-header nav a{
-  color:var(--muted);
-  text-decoration:none;
-  margin-left:14px;
-  font-size:14px;
-}
-
-/* hero */
-.hero{
-  max-width:var(--maxw);
-  margin:24px auto;
-  display:grid;
-  grid-template-columns: 1fr 360px;
-  gap:28px;
-  align-items:center;
-  padding:20px;
-}
-.hero-inner h2{font-size:36px;margin:0 0 8px 0}
-.hero-inner p{color:var(--muted);margin:0 0 18px 0}
-.btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent-color-1);color:white;text-decoration:none;margin-right:8px;box-shadow:0 4px 18px rgba(123,47,247,0.18)}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
-.hero-visual{
-  height:220px;border-radius:14px;background:linear-gradient(135deg,#7b2ff7 0%,#00d2ff 100%);
-  filter:contrast(1.1) saturate(1.2);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  position:relative;
-  overflow:hidden;
-}
-.hero-visual::after{
-  content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02), transparent 20%),
-  repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 4px);
-  mix-blend-mode:overlay;
-}
-
-/* categories */
-.categories{max-width:var(--maxw);margin:18px auto;padding:20px}
-.categories h3{margin:0 0 12px 0}
-.cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-.cat{background:var(--card);padding:14px;border-radius:10px;color:var(--muted);font-weight:600;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,0.5)}
-
-/* destaque cards */
-.destaques{max-width:var(--maxw);margin:18px auto;padding:20px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:12px;box-shadow: 0 8px 30px rgba(0,0,0,0.6)}
-.card h4{margin:0 0 8px 0}
-.card p{color:var(--muted);margin:0 0 12px 0}
-.readmore{color:var(--accent-color-2);text-decoration:none;font-weight:700}
-
-/* main case layout */
-.case-container{max-width:var(--maxw);margin:20px auto;display:grid;grid-template-columns:1fr 320px;gap:22px;padding:20px}
-.case-article{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:22px;border-radius:12px}
-.case-header h2{margin:0}
-.meta{color:var(--muted);margin-top:6px}
-.case-timeline ol{padding-left:18px}
-.case-sidebar .widget{background:var(--card);padding:12px;border-radius:10px;margin-bottom:12px;color:var(--muted)}
-
-/* footer */
-.site-footer{max-width:var(--maxw);margin:20px auto;padding:16px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-
-/* responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .case-container{grid-template-columns:1fr}
-  .site-header{flex-direction:column;align-items:flex-start}
-}
-
-/* subtle psychedelic touches */
-.card, .case-article, .cat{
-  background-image: linear-gradient(120deg, rgba(123,47,247,0.02), rgba(0,210,255,0.01));
-  border: 1px solid rgba(255,255,255,0.03);
-}
-.brand h1{letter-spacing:1px}
-.hero-inner h2{background:linear-gradient(90deg,#fff,#cfe4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* small motion */
-@keyframes floaty {
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-  100%{transform:translateY(0)}
-}
-.hero-visual{animation:floaty 6s ease-in-out infinite}
-
-/* accessibility tweaks */
-a:focus, button:focus {outline:3px solid rgba(123,47,247,0.25);outline-offset:3px}       
-      </style>
-  </body>
-</html>
